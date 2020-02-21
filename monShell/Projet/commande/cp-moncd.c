@@ -6,7 +6,6 @@
 int moncd(int argc, char* argv[]){
 	char* dir;
 	int t;
-	printf("La commande moncd s'est bien lancé \n");
 	if(argc<2){
 		dir = getenv("HOME");
 		if (dir == 0){
