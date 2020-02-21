@@ -1,11 +1,13 @@
 //////////////////////////////////////////////////////////////
 /// Auteur : Lepiller Charly //////////// Date : 19/02/2020///
 //////////////////////////////////////////////////////////////
-#include "cp-moncd.h"
-/* Fonction cd à la main */
+#include "monShell.h"
+
+/* Fonction pour changer de répertoire courant */
 int moncd(int argc, char* argv[]){
 	char* dir;
 	int t;
+	printf("moncd s'est bien lancé\n");
 	if(argc<2){
 		dir = getenv("HOME");
 		if (dir == 0){

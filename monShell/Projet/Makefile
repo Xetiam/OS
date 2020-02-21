@@ -5,27 +5,20 @@
 #Variables
 TEST = no
 CC=gcc
-ifeq ($(TEST),yes)
-	CCFLAG= -g -Wall -DTEST
-else
-	CCFLAG = -g -Wall
-endif
+CCFLAG = -g -Wall
+
 EXEC = monShell
 SRC=$(wildcard *.c)
 OBJ= $(SRC:.c=.o)
 
 All: $(EXEC)
-ifeq ($(TEST),yes)
-	@echo "Génération en mode test"
-else
-	@echo "Génération en mode classique"
-endif
+
 #Génération d'executables
 monShell: $(OBJ)
 	@$(CC) -o $@ $^ $(CCFLAG) 
 	@echo $@ "generated"
 
-monShell.o : fonctionsOs.h
+monShell.o : monShell.h
 #Génération des .o
 %.o: %.c
 	@$(CC) -o $@ -c $< $(CCFLAG) 

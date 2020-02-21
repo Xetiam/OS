@@ -1,13 +1,7 @@
-#include "fonctionsOS.h"
-
-
-enum {
-  MaxLigne = 1024,              // longueur max d'une ligne de commandes
-  MaxMot = MaxLigne / 2,        // nbre max de mot dans la ligne
-  MaxDirs = 100,		// nbre max de repertoire dans PATH
-  MaxPathLength = 512,		// longueur max d'un nom de fichier
-};
-
+//////////////////////////////////////////////////////////////
+/// Auteur : Lepiller Charly //////////// Date : 19/02/2020///
+//////////////////////////////////////////////////////////////
+#include "monShell.h"
 
 
 int main(int argc, char * argv[]){
@@ -18,23 +12,16 @@ int main(int argc, char * argv[]){
   int i, tmp;
   /* Decouper UNE COPIE de PATH en repertoires */
   decoupe(strdup(getenv("PATH")), ":", dirs, MaxDirs);
-	for(int j = 0 ; j<MaxDirs ; j++){//rajout du répertoire de mes commandes personnel
-		if(dirs[j] == 0){
-			dirs[j] = "/mnt/d/Grenier/Programmation/Exercices/OS/Projet/monShell/commande";
-			dirs[j+1] = 0;
-			break;
-		}
-	}
 
 
   /* Lire et traiter chaque ligne de commande */
   for(printf("%s: %s | %s",getenv("USER"), getenv("PWD"), PROMPT); fgets(ligne, sizeof ligne, stdin) != 0; printf("%s : %s | %s",getenv("USER"), getenv("PWD"), PROMPT)){
     decoupe(ligne, " \t\n", mot, MaxMot);
-    /* if (mot[0] == "env"){
-      mondcd(2,mot+1);
-    } *///Problème pointeur sur fonction
     if (mot[0] == 0){           // ligne vide 
 		}
+    if(mot[0] == "moncd"){
+      moncd(2,mot);
+    }
     tmp = fork();               // lancer le processus enfant
     if (tmp < 0){
       perror("fork");

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////
 /// Auteur : Lepiller Charly //////////// Date : 19/02/2020///
 //////////////////////////////////////////////////////////////
-#include "fonctionsOs.h"
+#include "monShell.h"
 
 /* Fonction qui découpe chaque mot d'une chaine et les stock dans un tableau */
 int decoupe(char* ligne, char* separ, char* mot[], int maxmot){
@@ -32,5 +32,3 @@ int main(int argc, char* argv[]){
 	return 0;
 }
 #endif
-
-
