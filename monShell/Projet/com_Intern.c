@@ -3,15 +3,14 @@
 //////////////////////////////////////////////////////////////
 #include "monShell.h"
 
-/* Fonction pour changer de répertoire courant */
+/* Commande interne pour changer de répertoire courant */
 int moncd(int argc, char* argv[]){
 	char* dir;
 	int t;
-	printf("moncd s'est bien lancé\n");
 	if(argc<2){
 		dir = getenv("HOME");
-		if (dir == 0){
-			dir ="/mnt";
+		if(dir == 0){
+			dir = "/tmp";
 		}
 	}
 	else if (argc > 2){
@@ -21,11 +20,17 @@ int moncd(int argc, char* argv[]){
 	else{
 		dir = argv[1];
 	}
-	printf("%s\n", dir);
 	t = chdir(dir);
 	if(t<0){
 		perror(dir);
 		return 1;
 	}
 	return 0;
+}
+
+/* Commande interne pour interrompre monShell */
+int monexit(char** tabIntern){
+	printf("Sortie de monShell\n");
+	free(tabIntern);
+	exit(EXIT_SUCCESS);
 }
