@@ -1,12 +1,12 @@
 # monShell
 
-## **Compilation :**
+### **Compilation :**
 monShell est un **minishell**, il est compilable via un makefile :
-make : pour compiler le minishell
-clean : pour supprimer les .o
-cleanall : pour supprimer les .o et l'exécutable
+*make : pour compiler le minishell
+*clean : pour supprimer les .o
+*cleanall : pour supprimer les .o et l'exécutable
 
-## **Commande interne :**
+### **Commande interne :**
 **monc** (commande permettant de changer de répertoire courant) // fonctionnel :
   Usage :
     moncd "path" permettra de se rendre à **"path"**
@@ -15,7 +15,7 @@ cleanall : pour supprimer les .o et l'exécutable
   Usage :
     monexit
 
-## **Commande externe :**
+### **Commande externe :**
 Aucune pour l'instant
 
 
