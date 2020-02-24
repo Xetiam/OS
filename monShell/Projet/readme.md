@@ -11,12 +11,14 @@ monShell est un **minishell**, il est compilable via un makefile :
   ##### Usage :
   * moncd "path" permettra de se rendre à **"path"**
   * moncd permettra de se rendre dans le répertoire contenue dans **$HOME**
-#### **monexit** (commande permettant de mettre fin proprement au minishell)
+#### **monexit** (commande permettant de mettre fin proprement au minishell) // fonctionnel :
   ##### Usage :
   * monexit
 
 ### **Commande externe :**
-Aucune pour l'instant
+#### Aucune pour l'instant
+
+Projet de licence 2 informatique ied de paris8
 ------------
 
 
