@@ -5,6 +5,8 @@ monShell est un **minishell**, il est compilable via un makefile :
 * make : pour compiler le minishell
 * clean : pour supprimer les .o
 * cleanall : pour supprimer les .o et l'exécutable
+<br/>
+De plus ce miniShell est capable de lancer n'importe qu'elle commande bash se trouvant dans le **$PATH**
 
 ### **Commande interne :**
 #### **monc** (commande permettant de changer de répertoire courant) // fonctionnel :
