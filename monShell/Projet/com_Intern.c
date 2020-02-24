@@ -5,7 +5,7 @@
 
 /* Commande interne pour changer de répertoire courant */
 int moncd(int argc, char* argv[]){
-	char* dir;
+	char* dir = malloc(sizeof(*dir)*1024);
 	int t;
 	if(argc<2){
 		dir = getenv("HOME");
@@ -18,7 +18,24 @@ int moncd(int argc, char* argv[]){
 		return 1;
 	}
 	else{
-		dir = argv[1];
+		if(argv[1][0] == '.' && argv[1][1] != '.'){
+			char* currentPath = malloc(sizeof(*currentPath)*1024);
+  		currentPath = getcwd(currentPath,1021);
+			dir = strcat(dir,currentPath);
+			dir = strcat(dir,argv[1]+1);
+			free(currentPath);
+		}
+		else if(argv[1][0] == '.' && argv[1][1] == '.'){
+			char* currentPath = malloc(sizeof(*currentPath)*1024);
+			char** tabPath = malloc(sizeof(**tabPath)*1024);
+  		currentPath = getcwd(currentPath,1021);
+			decoupe(currentPath,"/",tabPath,MaxMot);
+			
+			for(int i = 0 ; tabPath[i+1] != NULL; i++){
+				dir=strcat(dir,"/");
+				dir=strcat(dir,tabPath[i]);
+			}
+		}
 	}
 	t = chdir(dir);
 	if(t<0){

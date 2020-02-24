@@ -13,6 +13,8 @@ De plus ce miniShell est capable de lancer n'importe qu'elle commande bash se tr
   ##### Usage :
   * moncd "path" permettra de se rendre à **"path"**
   * moncd permettra de se rendre dans le répertoire contenue dans **$HOME**
+  * moncd ./"path" permettra de se rendre à **"path"** à partir du répertoire courant
+  * moncd .. permettra de se rendre dans le dossier parent au répertoire courant
 #### **monexit** (commande permettant de mettre fin proprement au minishell) // fonctionnel :
   ##### Usage :
   * monexit
