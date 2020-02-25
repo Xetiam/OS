@@ -17,7 +17,7 @@ int moncd(int argc, char* argv[]){
 		fprintf(stderr, "usage : %s [dir]\n",argv[0]);
 		return 1;
 	}
-	else{
+	else if(argc == 2){
 		if(argv[1][0] == '.' && argv[1][1] != '.'){
 			char* currentPath = malloc(sizeof(*currentPath)*1024);
   		currentPath = getcwd(currentPath,1021);

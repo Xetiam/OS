@@ -36,8 +36,10 @@ int m_exec(char** command,char** dirs){
 /* Fonction d'exécution d'une commande interne */
 int m_execIntern(char** command, char** tabIntern){
 	int cur = internOrNot(command,tabIntern,NBRCI);
+	int nbrArg = 0;
+	for(nbrArg = 0 ; command[nbrArg] != 0 ; nbrArg++){	}
 	if(cur == 0){//moncd
-		moncd(2,command);
+		moncd(nbrArg,command);
 	}
 	else if(cur == 1){//monexit
 		monexit(tabIntern);
