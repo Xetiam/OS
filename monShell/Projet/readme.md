@@ -9,7 +9,7 @@ monShell est un **minishell**, il est compilable via un makefile :
 
 De plus ce miniShell est capable :
 * de lancer n'importe qu'elle commande bash se trouvant dans le **$PATH**
-* de lancer plusieurs commande dans l'ordre à l'aide de && (si une commande échou les suivantes ne seront pas exécutée)
+* de lancer plusieurs commande dans l'ordre à l'aide de && 
 <br/>
 
 ### **Commande interne :**
