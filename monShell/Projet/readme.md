@@ -28,10 +28,10 @@ De plus ce miniShell est capable :
 ##### Usage :
 * monecho [arg1] [arg2] [arg3] .... [argn] :
 ##### Résultat :
-  > Programme lance sous le nom monecho avec n arguments
-  > argument 1 : arg1
-  > ...
-  > argument n : argn
+  * Programme lance sous le nom monecho avec n arguments
+  * argument 1 : arg1
+  * ...
+  * argument n : argn
 
 <br/>
 <br/>
