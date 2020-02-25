@@ -11,8 +11,8 @@ void Prompt(){
 
 int main(int argc, char * argv[]){
   char ligne[MaxLigne];
-  char * mot[MaxMot];
   char * dirs[MaxDirs];
+  char* mot[MaxMot];
   char** tabIntern = (char**) malloc(2*sizeof(char*));
 	tabIntern[0] = "moncd";
 	tabIntern[1] = "monexit";
@@ -23,14 +23,19 @@ int main(int argc, char * argv[]){
 
   /* Lire et traiter chaque ligne de commande */
   for(Prompt(); fgets(ligne, sizeof ligne, stdin) != 0; Prompt()){
-    decoupe(ligne, " \t\n", mot, MaxMot);
-    if (mot[0] == 0){           // ligne vide 
-		}
-    if(internOrNot(mot,tabIntern,NBRCI) != -1){
-      m_execIntern(mot,tabIntern);
+    if(findAnd(ligne) == 0){//Aucun && présent
+      decoupe(ligne, " \t\n", mot, MaxMot);
+      if (mot[0] == 0){           // ligne vide 
+      }
+      if(internOrNot(mot,tabIntern,NBRCI) != -1){//Test indiquant l'appartenance de la commande utilisateur aux commandes internes.
+        m_execIntern(mot,tabIntern);
+      }
+      else{
+        m_exec(mot,dirs);
+      }
     }
-    else{
-      m_exec(mot,dirs);
+    else if(findAnd(ligne) == 1){// au moins un && est présent
+      m_execMulti(ligne,tabIntern,dirs);
     }
 
   }

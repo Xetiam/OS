@@ -26,7 +26,7 @@ int m_exec(char** command,char** dirs){
 			snprintf(pathname, sizeof pathname, "%s/%s", dirs[i], command[0]);
 			execv(pathname, command);
 		}
-			// aucun exec n'a fonctionne
+		// aucun exec n'a fonctionne
 		fprintf(stderr, "%s: not found\n", command[0]);
 		exit(1);
 	}
@@ -41,6 +41,23 @@ int m_execIntern(char** command, char** tabIntern){
 	}
 	else if(cur == 1){//monexit
 		monexit(tabIntern);
+	}
+	return 0;
+}
+
+/* Fonction pour exécuter plusieurs commande avec des && */
+int m_execMulti(char* ligne, char**tabIntern, char** dirs){
+	char* tabCom[MaxComDif];
+	char* mot[MaxComDif][MaxMot];
+	decoupe(ligne,"&",tabCom,MaxComDif);
+	for(int i = 0; tabCom[i] != 0 ; i++){
+		decoupe(tabCom[i]," \t\n",mot[i],MaxMot);
+		if(internOrNot(mot[i],tabIntern,NBRCI) != -1){//Test indiquant l'appartenance de la commande utilisateur aux commandes internes.
+        m_execIntern(mot[i],tabIntern);
+    }
+    else{
+        m_exec(mot[i],dirs);
+    }
 	}
 	return 0;
 }
