@@ -13,13 +13,15 @@ De plus ce miniShell est capable :
 <br/>
 
 ### **Commande interne :**
-#### **monc** (commande permettant de changer de répertoire courant) // fonctionnel :
+#### **monc** 
+(commande permettant de changer de répertoire courant) // fonctionnel :
   ##### Usage :
   * moncd "path" permettra de se rendre à **"path"**
-  * moncd permettra de se rendre dans le répertoire contenue dans **$HOME**
+  * moncd permettra de se rendre dans le répertoire contenue dans **$HOME** ou **"/tmp"** si **$HOME** est vide.
   * moncd ./"path" permettra de se rendre à **"path"** à partir du répertoire courant
   * moncd .. permettra de se rendre dans le dossier parent au répertoire courant
-#### **monexit** (commande permettant de mettre fin proprement au minishell) // fonctionnel :
+#### **monexit** 
+(commande permettant de mettre fin proprement au minishell) // fonctionnel :
   ##### Usage :
   * monexit
 
