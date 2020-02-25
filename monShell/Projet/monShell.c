@@ -10,6 +10,8 @@ void Prompt(){
 }
 
 int main(int argc, char * argv[]){
+  /* Initialisation des variables */
+  int i = 0;
   char ligne[MaxLigne];
   char * dirs[MaxDirs];
   char* mot[MaxMot];
@@ -17,8 +19,15 @@ int main(int argc, char * argv[]){
 	tabIntern[0] = "moncd";
 	tabIntern[1] = "monexit";
 	tabIntern[2] = "noCommand";
+  char* monPath = malloc(sizeof(*monPath)*1024);
+  monPath = getcwd(monPath,1021);
+  strcat(monPath,"/commandes_externes");
   /* Decouper UNE COPIE de PATH en repertoires */
   decoupe(strdup(getenv("PATH")), ":", dirs, MaxDirs);
+  for(i = 0 ; dirs[i] != 0 ; i++){//rajout du répertoire contenant mes commandes externe
+  }
+  dirs[i] = monPath;
+  dirs[i+1] = 0;
 
 
   /* Lire et traiter chaque ligne de commande */
