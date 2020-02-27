@@ -8,8 +8,7 @@ Une re-implementation de la fonction execvp
 # include <assert.h>
 # include <stdlib.h>
 
-int
-monexecvp(char * file, char * av[]){
+int monexecvp(char * file, char * av[]){
   char * p;
   char * path;
   int t;
@@ -30,4 +29,14 @@ monexecvp(char * file, char * av[]){
     free(p);
   }
   return -1;
+}
+
+int main(int argv, char* argc[]){
+  char* file = argc[1];
+  char** av = (char**) malloc(sizeof(char**)*(argv-1));
+  for(int i = 1; argc[i] != 0 ; i++){
+    av[i-1] = argc[i];
+  }
+  monexecvp(file, av);
+  return 0;
 }
